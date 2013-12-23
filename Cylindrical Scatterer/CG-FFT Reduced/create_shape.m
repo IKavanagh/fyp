@@ -31,4 +31,4 @@ end
 [phi, rho] = cart2pol(real(position), imag(position));
 
 t = toc;
-fprintf(1, 'Created shape of width %.4f metres and length %.4f meters and discretised into %.0f cells in %.4f seconds\n', x_side, y_side, problem_size, t);
+fprintf(1, 'Created shape of width %.0fm and length %.0fm and discretised into %.0f cells in %.4fs\n', x_side, y_side, problem_size, t);

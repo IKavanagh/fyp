@@ -13,9 +13,9 @@ G = zeros(1, problem_size);
 leading_G_factor = ((2*pi*equiv_a) / k0);
 for counter = 1:problem_size
     
-    if(mod(counter,100) == 0) 
-         fprintf(1,'Counter equals %d of %d \n', counter, problem_size); 
-    end
+    %if(mod(counter,100) == 0) 
+    %     fprintf(1,'Counter equals %d of %d \n', counter, problem_size); 
+    %end
     
     % besselh(0, 2, 0) = NaN -> Need to put antennae in a position other
     % than the centre of a cell
@@ -38,4 +38,4 @@ for counter = 1:problem_size
 end
 
 t = toc;
-fprintf(1, 'Created V, G and D for a problem size of %.0f in %.4f seconds\n', problem_size, t);
+fprintf(1, 'Created V, G and D for a problem size of %.0f in %.4fs\n', problem_size, t);
