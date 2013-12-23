@@ -4,7 +4,7 @@ tic;
 cgne_fft_red
 
 t = toc;
-fprintf(1, 'Solved VEFIE for a problem size of %.0f in %.4f seconds\n', problem_size, t);
+fprintf(1, 'Solved VEFIE for a problem size of %.0f in %.4f seconds and %.0f iterations\n', problem_size, t, n);
 
 E_total_vefie_real = zeros(M, N);
 E_total_vefie_imag = zeros(M, N);

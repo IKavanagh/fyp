@@ -27,32 +27,31 @@ etad =  sqrt(mud/epsilond);
 lambdad = c_d/f;
 
 % Shape %
-% Cylinder %
-circumference = 2*pi*lambda0/4;
-radius = circumference/(2*pi);
-
-% Containing Rectangle %
+% Containing Rectangle
 centre = 0.0 + 0.0 * 1i;
-length_x_side = radius*2 * 1.5;
-length_y_side = radius*2 * 1.25;
+x_side = 1;
+y_side = 1;
 
-start_point = centre - (length_x_side * 0.5 + length_y_side * 0.5 * 1i);
+% Cylinder %
+radius = min([x_side y_side]) * 0.5 * 0.5;
+
+start_point = centre - (x_side * 0.5 + y_side * 0.5 * 1i);
 
 disc_per_lambda = 10; % Recommended peterson (Pg. 62)
 
 % Determine N, multiple of 2
-N = floor(length_x_side / (abs(lambdad) / disc_per_lambda));
+N = floor(x_side / (abs(lambdad) / disc_per_lambda));
 while (mod(N, 2) ~= 0)
     N = N + 1;
 end
-delta_x = length_x_side / N;
+delta_x = x_side / N;
 
 % Determine M, multiple of 4
-M = floor(length_y_side / (abs(lambdad) / disc_per_lambda));
+M = floor(y_side / (abs(lambdad) / disc_per_lambda));
 while (mod(M, 2) ~= 0)
     M = M + 1;
 end
-delta_y = length_y_side / M;
+delta_y = y_side / M;
 
 problem_size = N*M;
 
