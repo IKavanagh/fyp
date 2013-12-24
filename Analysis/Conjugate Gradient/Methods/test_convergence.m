@@ -4,10 +4,10 @@ close all
 
 N = 1e2; % Size of matrices
 tol = 1e-6; % Tolerance to solve for
-points = N / 10; % Distance between consecutive points when plotting
+points = 10; % Distance between consecutive points when plotting
 
 complex = 1; % Whether matrix should be complex or real
-posdef = 0; % Whether matrix should be positive definite or not
+posdef = 1; % Whether matrix should be positive definite or not
 
 [A, b] = create_matrices(N, complex, posdef);
 
@@ -25,13 +25,14 @@ it2 = 0:points:(length(r2)-1)*points;
 it3 = 0:points:(length(r3)-1)*points;
 
 h = figure;
-hold on
-plot(it1, log10(r1), 'r-');
-plot(it2, log10(r2), 'b-.');
-plot(it3, log10(r3), 'g--');
-title('Plot of Convergence Rate of CG Methods');
-xlabel('Number of Iterations');
-ylabel('Log10 Norm of Residual');
-axis([0 2*N log10(tol*0.1) log10(1e5)]);
+
+plot(it1, log10(r1), 'r--', it2, log10(r2), 'b:', it3, log10(r3), 'g-');
+
+xlim([0 2*N]);
+ylim([log10(1e-3) log10(1e2)]);
+
 legend('CG', 'BiCG', 'CGNE');
-hold off
+titleStr = sprintf('Plot of Convergence Rate of CG Methods\nComplex Positive Definite Matrix');
+title(titleStr);
+xlabel('Number of Iterations');
+ylabel('Order of Error');
