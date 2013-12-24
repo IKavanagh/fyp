@@ -6,7 +6,7 @@ close all
 variables
 
 tol = 1e-6; % Tolerance to solve for
-points = 1; % Distance between consecutive points when plotting
+points = 5; % Distance between consecutive points when plotting
 
 % Create shape for problem to be solved over
 create_shape
@@ -28,12 +28,13 @@ it2 = 0:points:(length(r2)-1)*points;
 it3 = 0:points:(length(r3)-1)*points;
 
 h = figure;
-hold on
-plot(it1, log10(r1), 'r-');
-plot(it2, log10(r2), 'b-.');
-plot(it3, log10(r3), 'g--');
-title('Plot of Convergence Rate of CG Methods for VEFIE Problem');
-xlabel('Number of Iterations');
-ylabel('Log10 Norm of Residual');
+plot(it1, log10(r1), 'r--', it2, log10(r2), 'b:', it3, log10(r3), 'g-');
+
+xlim([0 2*N]);
+ylim([log10(1e-3) log10(1e4)]);
+
 legend('CG', 'BiCG', 'CGNE');
-hold off
+titleStr = sprintf('Plot of Convergence Rate of CG Methods\nVEFIE Problem');
+title(titleStr);
+xlabel('Number of Iterations');
+ylabel('Order of Error');
