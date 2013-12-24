@@ -11,7 +11,7 @@ p = -(rn_1 + conj(D).*conv_fft(conj(G.'), rn_1, N)); % p0 = -Z'*r0
 while (norm(rn_1) > tol && n < problem_size)
     n = n + 1;
 
-    if (mod(n, 10) == 0)
+    if (mod(n, 100) == 0)
         fprintf(1, 'Number of iterations %.f \n', n);
     end
     
