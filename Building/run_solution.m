@@ -38,7 +38,7 @@ if 1 == 1 % Incident field
 end
 
 % Movie
-if 1 == 1
+if 1 == 2
     h = figure;
     
     start_time = 0;
@@ -66,5 +66,5 @@ if 1 == 1
         movie_frames(i) = getframe(gcf);
     end
     
-    movie2avi(movie_frames, 'building.avi');
+    % movie2avi(movie_frames, 'building.avi');
 end

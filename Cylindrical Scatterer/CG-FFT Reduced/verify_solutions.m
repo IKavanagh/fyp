@@ -49,9 +49,6 @@ if 1 == 1
     xlim(axis_lim);
     ylim(axis_lim);
     
-    %filename = sprintf('p_scatterer_r%0.f', radius);
-    %hgsave(h, filename);
-    
     h = figure;
     
     surf(real(pos), imag(pos), abs(E_total_vefie_real + 1i*E_total_vefie_imag));
@@ -62,13 +59,10 @@ if 1 == 1
     title('Plot of Total Electric Field Interacting on Cylindrical Scatterer');
     xlim(axis_lim);
     ylim(axis_lim);
-    
-    %filename = sprintf('p_electric_field_r%0.f', radius);
-    %hgsave(h, filename);
 end
 
 % Movie
-if 1 == 1
+if 1 == 2
     h = figure;
     
     start_time = 0;
@@ -96,5 +90,5 @@ if 1 == 1
         movie_frames(i) = getframe(gcf);
     end
     
-    movie2avi(movie_frames, 'scatterer.avi');
+    %movie2avi(movie_frames, 'scatterer.avi');
 end

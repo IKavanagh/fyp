@@ -37,7 +37,7 @@ radius = min([x_side y_side]) * 0.5 * 0.5;
 
 start_point = centre - (x_side * 0.5 + y_side * 0.5 * 1i);
 
-disc_per_lambda = 10; % Recommended peterson (Pg. 62)
+disc_per_lambda = 20; % Recommended peterson (Pg. 62)
 
 % Determine N, multiple of 2
 N = floor(x_side / (abs(lambdad) / disc_per_lambda));
