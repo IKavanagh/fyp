@@ -4,7 +4,7 @@ tic;
 n = 0;
 tol = 1e-3;
 
-rfo = logical(D); % Reduced forward operator
+rfo = logical(real(D)); % Reduced forward operator
 Vred = rfo.*V;
 
 % Create an initial guess

@@ -26,7 +26,7 @@ if 1 == 1 % Total electric field
     title('Plot of Total Electric Field Interacting in Building');
 end
 
-if 1 == 1 % Incident field
+if 1 == 2 % Incident field
     h = figure;
     
     surf(real(pos), imag(pos), abs(E_inc));

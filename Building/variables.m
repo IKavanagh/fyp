@@ -15,7 +15,7 @@ eta0 =  sqrt(mu0/epsilon0);
 lambda0 = c0/f; % Wavelength
 
 % Concrete %
-epsilonrc = 6.0;
+epsilonrc = 6.0 - 1i;
 epsilonc = epsilonrc*epsilon0;
 muc = mu0; % No magnetic permeability in concrete
 cc = 1.0/sqrt(epsilonc*muc);
