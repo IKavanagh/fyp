@@ -4,8 +4,8 @@ close all
 
 % Define increasing scale for x_side and y_side
 start_point = 0;
-end_point = 1;
-step_point = 0.05;
+end_point = 10;
+step_point = 1;
 
 x_side_vec = start_point:step_point:end_point;
 

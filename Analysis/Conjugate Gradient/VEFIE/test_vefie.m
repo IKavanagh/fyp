@@ -6,7 +6,7 @@ close all
 variables
 
 tol = 1e-6; % Tolerance to solve for
-points = 5; % Distance between consecutive points when plotting
+points = 1; % Distance between consecutive points when plotting
 
 % Create shape for problem to be solved over
 create_shape
@@ -34,7 +34,7 @@ xlim([0 2*N]);
 ylim([log10(1e-3) log10(1e4)]);
 
 legend('CG', 'BiCG', 'CGNE');
-titleStr = sprintf('Plot of Convergence Rate of CG Methods\nVEFIE Problem');
+titleStr = sprintf('Plot of Convergence Rate of CG Methods for VEFIE Problem');
 title(titleStr);
 xlabel('Number of Iterations');
-ylabel('Order of Error');
+ylabel('Error');

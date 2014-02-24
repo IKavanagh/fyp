@@ -55,7 +55,7 @@ if 1 == 2
     
     h = figure;
     
-    surf(real(pos), imag(pos), abs(E_total_vefie_real + 1i*E_total_vefie_imag));
+    surf(real(pos), imag(pos), log10(abs(E_total_vefie_real + 1i*E_total_vefie_imag)));
     shading interp;
     view(2);
     xlabel('Distance (m)');

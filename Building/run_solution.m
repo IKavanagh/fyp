@@ -31,6 +31,17 @@ for y = 1:N
     end
 end
 
+% Plot convergence rate
+if 1 == 1 
+    h = figure;
+    
+    plot(log10(error));
+    
+    xlabel('Number of Iterations');
+    ylabel('Error');
+    title('Error Compared to Number of Iterations');
+end
+
 % Plot results
 if 1 == 1 % Total electric field
     h = figure;

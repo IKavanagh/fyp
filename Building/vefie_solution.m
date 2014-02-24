@@ -20,11 +20,11 @@ p = -(rfo.*rn_1 + Dconj.*conv_fft(Gconj, rfo.*rn_1, N)); % p0 = -Z'*r0
 while (norm(rn_1) > tol && n < problem_size)
     n = n + 1;
     
-    Error(n) = norm(rn_1);
+    error(n) = norm(rn_1);
 
     if (mod(n, 10) == 0)
         fprintf(1, 'Number of iterations %.f \n', n);
-        fprintf(1, 'Error is %2.5f - Aiming for %2.5f \n', norm(rn_1), tol);
+        fprintf(1, 'Error is %2.3f - Aiming for %2.3f \n', norm(rn_1), tol);
     end
     
     alpha = (norm(rfo.*rn_1 + Dconj.*conv_fft(Gconj, rfo.*rn_1, N)) / norm(rfo.*p + rfo.*conv_fft(G, D.*p, N)))^2; % norm(Z'*rn_1)^2 / norm(Z*p)^2;
