@@ -23,6 +23,16 @@ kc = omega*sqrt(epsilonc*muc);
 etac = sqrt(muc/epsilonc);
 lambdac = cc/f;
 
+% sigmac = 100000.001 ;
+% muc = mu0;
+% epsilonc = 3.5*epsilon0;
+% 
+% propagation_constant_c = sqrt(1i*omega*muc*(sigmac +1i*omega*epsilonc));
+% 
+% kc = -1i*propagation_constant_c; 
+% etac = 1i*omega*muc/propagation_constant_c; 
+% lambdac = 2*pi/(real(kc));
+
 % Glass %
 epsilonrg = 4.0;
 epsilong = epsilonrg*epsilon0;
@@ -42,7 +52,7 @@ etaw = sqrt(muw/epsilonw);
 lambdaw = cw/f;
 
 % Define a general lambda for dielectrics
-lambdad = lambdac; % Use concrete because it has a smaller lambda
+lambdad = lambdac; % Use free space because it has a smaller lambda
 
 disc_per_lambda = 10; % Recommended peterson (Pg. 62)
 
@@ -51,8 +61,8 @@ disc_per_lambda = 10; % Recommended peterson (Pg. 62)
 x_side = 2; % metres
 y_side = 2; % metres
 
-wall = min([x_side y_side]) / 100; % metres
-door = min([x_side y_side]) / 10; % metres
+wall = min([x_side y_side]) / 40; % Roughly 0.25 metres
+door = min([x_side y_side]) / 20; % Roughly 0.5 metres
 
 % Define antennae location
 antennae = -0.8 -0.8*1i;

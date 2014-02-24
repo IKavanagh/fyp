@@ -3,6 +3,8 @@ MHz = 1000000.0;
 f = 700.0*MHz; 
 omega = 2.0*pi*f;
 
+tol = 1e-3;
+
 % Define Mie Series limits
 % Depend heavily on frequency in question
 high_limit = 100;

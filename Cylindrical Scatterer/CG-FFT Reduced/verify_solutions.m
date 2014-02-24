@@ -15,17 +15,21 @@ create_vefie_elements
 vefie_solution
 
 % Plot results
-if 1 == 2
+if 1 == 1
     
     % Run Mie Series solution
     mie_series_solution
     
-    for counter = 1:M % Loop through y axis
+    step = round((M - 1) / 10);
+    
+    for counter = 1:step:M % Loop through y axis
         h = figure;
         hold on
-        title('Comparison of Real Part of Total Electric Field');
+        title('Comparison of electric fields produced by Mie series and VEFIE');
         plot(E_total_vefie_real(counter, 1:end), 'b');
         plot(E_total_mie_real(counter, 1:end), 'g');
+        
+        legend('VEFIE', 'Mie Series');
 
         xlabel('x-axis');
         ylabel('Re(Ez)');
@@ -34,7 +38,7 @@ if 1 == 2
 end
 
 % Surface plot of total electric field
-if 1 == 1
+if 1 == 2
     h = figure;
     
     temp = max([x_side y_side]);
