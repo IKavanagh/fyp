@@ -23,18 +23,8 @@ kc = omega*sqrt(epsilonc*muc);
 etac = sqrt(muc/epsilonc);
 lambdac = cc/f;
 
-% sigmac = 100000.001 ;
-% muc = mu0;
-% epsilonc = 3.5*epsilon0;
-% 
-% propagation_constant_c = sqrt(1i*omega*muc*(sigmac +1i*omega*epsilonc));
-% 
-% kc = -1i*propagation_constant_c; 
-% etac = 1i*omega*muc/propagation_constant_c; 
-% lambdac = 2*pi/(real(kc));
-
 % Glass %
-epsilonrg = 4.0;
+epsilonrg = 4.0 - 10i;
 epsilong = epsilonrg*epsilon0;
 mug = mu0; % No magnetic permeability in glass
 cg = 1.0/sqrt(epsilong*mug);
@@ -51,18 +41,27 @@ kw = omega*sqrt(epsilonw*muw);
 etaw = sqrt(muw/epsilonw);
 lambdaw = cw/f;
 
+% Metal like %
+epsilonrm = 6.0 - 10i;
+epsilonm = epsilonrm*epsilon0;
+mum = mu0; % No magnetic permeability in concrete
+cm = 1.0/sqrt(epsilonm*mum);
+km = omega*sqrt(epsilonm*mum);
+etam = sqrt(mum/epsilonm);
+lambdam = cm/f;
+
 % Define a general lambda for dielectrics
-lambdad = lambdac; % Use free space because it has a smaller lambda
+lambdad = lambdac;
 
 disc_per_lambda = 10; % Recommended peterson (Pg. 62)
 
 % Shape %
 % Outline %
-x_side = 2; % metres
-y_side = 2; % metres
+x_side = 5; % metres
+y_side = 5; % metres
 
 wall = min([x_side y_side]) / 40; % Roughly 0.25 metres
-door = min([x_side y_side]) / 20; % Roughly 0.5 metres
+door = min([x_side y_side]) / 10; % Roughly 0.5 metres
 
 % Define antennae location
 antennae = -0.8 -0.8*1i;

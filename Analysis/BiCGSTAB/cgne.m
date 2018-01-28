@@ -1,4 +1,4 @@
-function [E, r] = cgne(Z, V, tol, points)
+function [E, SE] = cgne(V, Z, tol)
     % Solves V = ZE using the Conjugate Gradient applied to the Normal
     % Equations method
     tic;
@@ -12,12 +12,12 @@ function [E, r] = cgne(Z, V, tol, points)
     % Create an initial guess
     E = zeros(N, 1);
     
-    rn_1 = Z * E - V; % r0
+    rn_1 = Z*E - V; % r0
     p = -Zt * rn_1; % p0
 
-    r = zeros(N, 1);
-    r(1) = norm(rn_1);
-    while (norm(rn_1) > tol && n < 2*N)
+    SE = zeros(N, 1);
+    SE(1) = norm(rn_1);
+    while (norm(rn_1) > tol && n < N)
         n = n + 1;
 
         alpha = norm(Zt * rn_1)^2 / norm(Z * p)^2;
@@ -32,12 +32,11 @@ function [E, r] = cgne(Z, V, tol, points)
         % Move rn back to rn_1
         rn_1 = rn;
         
-        if (mod(n, points) == 0)
-            if (mod(n, 100) == 0)
-                fprintf(1, 'Number of iterations %.f \n', n);
-            end
-            r((n / points) + 1) = norm(rn);
+        if (mod(n, 10) == 0)
+            fprintf(1, 'Number of iterations %.f \n', n);
         end
+        
+        SE(n+1) = norm(rn_1);
     end
 
     t = toc;

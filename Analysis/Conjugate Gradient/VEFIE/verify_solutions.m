@@ -18,7 +18,7 @@ create_vefie_elements
 vefie_solution
 
 % Plot results
-for counter = 1:M % Loop through y axis
+for counter = 1:4:M % Loop through y axis
     h = figure;
     hold on
     title('Comparison of Real Part of Total Electric Field');

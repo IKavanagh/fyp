@@ -8,6 +8,7 @@ start_point = centre - (x_side * 0.5 + y_side * 0.5 * 1i); % Lower left
 
 % Determine N, multiple of 4
 N = floor(x_side / (abs(lambdad) / disc_per_lambda));
+
 while (mod(N, 4) ~= 0)
     N = N + 1;
 end
@@ -43,6 +44,8 @@ wave_number(1:problem_size, 1) = k0;
 
 position_counter = 0;
 
+wall_start = 100000.0 ; 
+
 for y = 1:M % y-direction
     for x = 1:N % x-direction
         % Position counter traverses along x-axis
@@ -55,6 +58,13 @@ for y = 1:M % y-direction
         % Define wave numbers
         if (building(y, x) == 1) % Concrete
             wave_number(position_counter, 1) = kc;
+            
+            if(real(position(position_counter)) < wall_start)  
+                wall_start = real(position(position_counter))  ; 
+            end
+            
+               
+            
         end
         
         if (building(y, x) == 2) % Glass
@@ -65,12 +75,10 @@ for y = 1:M % y-direction
             wave_number(position_counter, 1) = kw;
         end
         
-        if (building(y, x) == 4) % Metal
-            wave_number(position_counter, 1) = km;
-        end
-        
     end
 end
+
+
 
 [phi, rho] = cart2pol(real(position), imag(position));
 
@@ -91,3 +99,4 @@ if 1 == 1
     half_y = y_side * 0.5;
     ylim([-half_y half_y]);
 end
+

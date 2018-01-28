@@ -4,7 +4,8 @@ tic;
 tol = 1e-6; % Tolerance to solve for
 points = 100; % Distance between consecutive points when plotting
 
-E = cgne(Z, V, tol, points);
+%E = cgne(Z, V, tol, points);
+E = bicgstab(Z, V, tol, points);
 
 t = toc;
 fprintf(1, 'Solved VEFIE for a problem size of %.0f in %.4f seconds\n', problem_size, t);
